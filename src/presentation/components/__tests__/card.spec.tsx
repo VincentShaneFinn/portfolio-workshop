@@ -1,23 +1,42 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Card from '../card';
-import { mount, shallow } from 'enzyme';
+import Card, { CardProps, CardState } from '../card';
+import { mount, ReactWrapper, shallow } from 'enzyme';
+import { KanbanBoard } from '../../../domain/kanbanBoard/kanbanBoard';
 
 describe('Card component', () => {
-    it('should have Title label', () => {
-        render(<Card />);
-        const label = document.getElementsByClassName("card-title-label")[0];
+    let kanbanBoard: KanbanBoard;
+    let props: CardProps;
+    let wrapper: ReactWrapper<CardProps, CardState, Card>;
 
-        expect(label).toHaveTextContent("Title");
+    beforeEach(() => {
+        kanbanBoard = new KanbanBoard();
+        props = {
+            board: kanbanBoard
+        };
+        wrapper = mount<Card>(<Card {...props}/>)
+    });
+
+    it('should have Title label', () => {
+        const label = wrapper.find('label');
+
+        expect(label.text()).toBe("Title");
       });
 
     it('should update its title when text is entered', () => {
-        let wrapper = mount(<Card />);
-        const input = document.getElementsByClassName("card-title-input")[0] as HTMLInputElement;
+        let input = wrapper.find('input');
 
-        input.value = "Card title";
+        input.simulate('change', { target: { value: 'Card title'}});
 
-        // expect(wrapper.instance().state.cardTitle).toBe("Card title");
+        expect(wrapper.instance().state.cardTitle).toBe("Card title");
     });
       
+    it('given title was entered, when button pressed, then add card to board', () => {
+        let button = wrapper.find("button");
+        wrapper.instance().state.cardTitle = "new card title";
+        
+        button.simulate('click');
+
+        expect(props.board.openList[0].title).toBe("new card title");
+    })
 });

@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node workshop.domain/index.js",
+    "build": "cd workshop.presentation && npm install && npm run build"
+  },
+  "engines": {
+    "node": "14.16.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

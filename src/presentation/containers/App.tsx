@@ -8,7 +8,8 @@ function App() {
       <header className="App-header">
         <img src="images/logo.svg" className="App-logo" alt="logo" />
         <p>
-          Add one to 1: {addOne(1)}
+          Add one to 1 number: {addOne(1)}
+          Add one to 1 string: {addOne("1")}
         </p>
         <a
           className="App-link"

@@ -1,14 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+import { addOne } from '../../domain/workshop';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src="images/logo.svg" className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Add one to 1: {addOne(1)}
         </p>
         <a
           className="App-link"

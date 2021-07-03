@@ -8,4 +8,12 @@ describe("addOne", () => {
 
         expect(actual).toBe(2);
     })
+
+    it("given a string, should add the string one", () => {
+        let val = "string ";
+
+        let actual = addOne(val);
+
+        expect(actual).toBe("string one");
+    })
 })

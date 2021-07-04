@@ -1,6 +1,6 @@
 import React from 'react';
 import { addOne } from '../../domain/workshop';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (

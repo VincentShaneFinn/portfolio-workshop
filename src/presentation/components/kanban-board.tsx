@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './kanban-board.css';
+import './kanban-board.scss';
 
 interface KanbanBoardProps {
     cardTitle: string,
@@ -26,23 +26,26 @@ class KanbanBoard extends Component<{}, KanbanBoardProps> {
     getCards() {
         return this.state.cards.map((cardTitle) =>
             <div className="kanban-card" key={cardTitle}>
-                <div className="kanban-card-title">{ cardTitle }</div>
+                <div className="kanban-card-title">{cardTitle}</div>
             </div>
         );
     }
 
     render() {
         return (
-            <div className="kanban-board">
+            <div className="kanban-board container">
                 <div className="add-kanban-card">
-                    <label className="kanban-card-title-label">
-                        Title<br />
-                        <input className="kanban-card-title-input" onChange={ event => this.setState({cardTitle: event.target.value })}></input>
-                    </label>
-                    <button className="add-kanban-card-btn" onClick={ this.addCard }>Add Card</button>
+                    <div className="form-group">
+                        <label className="kanban-card-title-label w-100">
+                            Title<br />
+                            <input className="kanban-card-title-input form-control" onChange={event => this.setState({ cardTitle: event.target.value })}></input>
+                        </label>
+                    </div>
+                    <br />
+                    <button className="btn btn-primary add-kanban-card-btn" onClick={this.addCard}>Add Card</button>
                 </div>
                 <div>
-                    { this.getCards() }
+                    {this.getCards()}
                 </div>
             </div>
         )

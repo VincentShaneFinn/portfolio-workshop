@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import KanbanBoard from './presentation/components/kanbanBoard';
+import KanbanBoard from './presentation/components/kanban-board';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

@@ -61,7 +61,9 @@ class KanbanBoard extends Component<{}, KanbanBoardState> {
                     <div className="form-group">
                         <label className="kanban-card-title-label w-100">
                             Title<br />
-                            <input className="kanban-card-title-input form-control" onChange={event => this.setState({ cardTitle: event.target.value })}></input>
+                            <input className="kanban-card-title-input form-control" 
+                            onChange={event => this.setState({ cardTitle: event.target.value })}
+                            onKeyPress={event => { if(event.key == "Enter") this.addCard(); }} ></input>
                         </label>
                     </div>
                     <br />

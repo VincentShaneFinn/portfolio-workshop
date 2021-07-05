@@ -14,24 +14,47 @@ defineFeature(feature, test => {
         kanbanBoard = mount(<KanbanBoard />);
     });
 
-    test('Add card to board', ({
-        given,
-        when,
-        then
-    }) => {
-        given('I entered a title', () => {
-            enterCardTitle();
-        });
-        when('I click add', () => {
-            clickAddCard();
-        });
+    const given_I_entered_a_title = (given: any) => {
+        given('I entered a title', enterCardTitle)
+    }
+
+    const a_card_is_added_to_the_board = (then: any) => {
         then('a card is added to the board', () => {
             let actualCards = kanbanBoard.find('.open-list .kanban-card');
 
             expect(actualCards.length).toBe(1);
             expect(actualCards.find('.kanban-card-title').at(0).text()).toBe(cardTitle);
+        })
+    }
+
+    test('Add card to board', ({
+        given,
+        when,
+        then
+    }) => {
+        given_I_entered_a_title(given);
+
+        when('I click add', () => {
+            clickAddCard();
         });
+
+        a_card_is_added_to_the_board(then);
     });
+
+    test('Click enter on input to add card', ({
+        given,
+        when,
+        then
+      }) => {
+        given_I_entered_a_title(given);
+      
+        when('I hit the enter key', () => {
+            let addCardBtn = kanbanBoard.find('input.kanban-card-title-input');
+            addCardBtn.simulate('keypress', {key: 'Enter'})
+        });
+      
+        a_card_is_added_to_the_board(then);
+      });
     
     test('Move a card to closed', ({
         given,

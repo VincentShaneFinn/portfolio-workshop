@@ -30,7 +30,7 @@ class KanbanBoard extends Component<{}, KanbanBoardState> {
 
     moveCard(index: number) {
         let closedCard = this.state.openList[index];
-        let newOpenCards = this.state.openList.filter((_, i) => i != index);
+        let newOpenCards = this.state.openList.filter((_, i) => i !== index);
 
         this.setState(prevState => ({
             openList: newOpenCards,
@@ -71,7 +71,7 @@ class KanbanBoard extends Component<{}, KanbanBoardState> {
                         Title<br />
                         <input className="kanban-card-title-input form-control"
                             onChange={event => this.setState({ cardTitle: event.target.value })}
-                            onKeyPress={event => { if (event.key == "Enter") this.addCard(); }} ></input>
+                            onKeyPress={event => { if (event.key === "Enter") this.addCard(); }} ></input>
                     </label>
                 </div>
                 <br />

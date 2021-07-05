@@ -1,0 +1,29 @@
+$gray-5: #555;
+$gray-6: #666;
+
+.kanban-card {
+    background-color: $gray-5;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.add-kanban-card {
+    background-color: $gray-5;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid white;
+
+    .kanban-card-title-input, .kanban-card-title-input:focus {
+        color: white;
+        background: $gray-6;
+    }
+}
+
+.kanban-lists {
+    h3 {
+        padding: 15px;
+        padding-bottom: 0;
+    }
+}

@@ -1,30 +1,53 @@
 import React, { Component } from 'react';
 import './kanban-board.scss';
 
-interface KanbanBoardProps {
+interface KanbanBoardState {
     cardTitle: string,
-    cards: Array<string>
+    openList: Array<string>,
+    closedList: Array<string>
 }
 
-class KanbanBoard extends Component<{}, KanbanBoardProps> {
+class KanbanBoard extends Component<{}, KanbanBoardState> {
     constructor(props?: any) {
         super(props);
         this.addCard = this.addCard.bind(this);
+        this.moveCard = this.moveCard.bind(this);
     }
 
     state = {
         cardTitle: "",
-        cards: []
+        openList: [] as Array<string>,
+        closedList: [] as Array<string>
     };
 
     addCard() {
         this.setState(prevState => ({
-            cards: [...prevState.cards, prevState.cardTitle]
+            openList: [...prevState.openList, prevState.cardTitle]
         }));
     }
 
-    getCards() {
-        return this.state.cards.map((cardTitle) =>
+    moveCard(index: number) {
+        let closedCard = this.state.openList[index];
+        let newOpenCards = this.state.openList.filter((_, i) => i != index);
+
+        this.setState(prevState => ({
+            openList: newOpenCards,
+            closedList: [...prevState.closedList, closedCard]
+        }));
+    }
+
+    getOpenList() {
+        return this.state.openList.map((cardTitle, index) =>
+            <div className="kanban-card" key={cardTitle}>
+                <div className="kanban-card-title">{cardTitle}</div>
+                <br />
+                <button className="btn btn-primary close-kanban-card-btn" onClick={() => this.moveCard(index)}>Close</button>
+            </div>
+        );
+    }
+
+    getClosedList() {
+        return this.state.closedList.map((cardTitle) =>
             <div className="kanban-card" key={cardTitle}>
                 <div className="kanban-card-title">{cardTitle}</div>
             </div>
@@ -44,8 +67,19 @@ class KanbanBoard extends Component<{}, KanbanBoardProps> {
                     <br />
                     <button className="btn btn-primary add-kanban-card-btn" onClick={this.addCard}>Add Card</button>
                 </div>
-                <div>
-                    {this.getCards()}
+                <div className="row kanban-lists">
+                    <div className="col-6">
+                        <h3>Open</h3>
+                        <div className="open-list">
+                            {this.getOpenList()}
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <h3>Closed</h3>
+                        <div className="closed-list">
+                            {this.getClosedList()}
+                        </div>
+                    </div>
                 </div>
             </div>
         )

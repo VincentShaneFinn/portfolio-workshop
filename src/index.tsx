@@ -4,10 +4,11 @@ import KanbanBoard from './presentation/components/kanban-board';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.scss';
+import GameOfLife from './presentation/components/game-of-life';
 
 ReactDOM.render(
   <React.StrictMode>
-    <KanbanBoard />
+    <GameOfLife />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -30,7 +30,7 @@ export class World {
         return this.coordinates.filter(potentialNeighbour => {
             var xWithin1 = Math.abs(coordinate.x - potentialNeighbour.x) <= 1;
             var yWithin1 = Math.abs(coordinate.y - potentialNeighbour.y) <= 1;
-            var isItself = coordinate.x == potentialNeighbour.x && coordinate.y == potentialNeighbour.y;
+            var isItself = coordinate.x === potentialNeighbour.x && coordinate.y === potentialNeighbour.y;
             return xWithin1 && yWithin1 && !isItself;
         });
     }
@@ -58,4 +58,35 @@ export class World {
         return new World();
     }
 
+    static glider(): World {
+        let world = new World();
+
+        world.addCoordinate(new Coordinate(10, -8));
+        world.addCoordinate(new Coordinate(9, -8));
+        world.addCoordinate(new Coordinate(8, -8));
+        world.addCoordinate(new Coordinate(8, -9));
+        world.addCoordinate(new Coordinate(9, -10));
+
+        return world;
+    }
+
+    static infiniteGrowth() {
+        let world = new World();
+
+        world.addCoordinate(new Coordinate(-2, 2));
+        world.addCoordinate(new Coordinate(-1,2));
+        world.addCoordinate(new Coordinate(0,2));
+        world.addCoordinate(new Coordinate(2,2));
+        world.addCoordinate(new Coordinate(-2,1));
+        world.addCoordinate(new Coordinate(1,0));
+        world.addCoordinate(new Coordinate(2,0));
+        world.addCoordinate(new Coordinate(-1,-1));
+        world.addCoordinate(new Coordinate(0,-1));
+        world.addCoordinate(new Coordinate(2,-1));
+        world.addCoordinate(new Coordinate(-2,-2));
+        world.addCoordinate(new Coordinate(0,-2));
+        world.addCoordinate(new Coordinate(2,-2));
+
+        return world;
+    }
 }

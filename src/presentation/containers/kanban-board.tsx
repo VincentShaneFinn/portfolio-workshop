@@ -86,6 +86,7 @@ class KanbanBoard extends Component<{}, KanbanBoardState> {
         return (
             <div className="kanban-board container">
                 {this.renderAddCard()}
+                <br />
                 <div className="row kanban-lists">
                     <div className="col-6">
                         <div className="border">

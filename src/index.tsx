@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import KanbanBoard from './presentation/components/kanban-board';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.scss';
+import App from './presentation/containers/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <KanbanBoard />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

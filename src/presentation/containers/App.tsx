@@ -1,27 +1,25 @@
-import React from 'react';
-import { addOne } from '../../domain/workshop';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import './App.scss';
+import GameOfLife from './game-of-life';
+import KanbanBoard from './kanban-board';
+import Main from './main';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="images/logo.svg" className="App-logo" alt="logo" />
-        <p>
-          Add one to 1 number: {addOne(1)}
-          Add one to 1 string: {addOne("1")}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <header className="App-header">
+              <Link to="/">Portfolio Workshop</Link>
+          </header>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/KanbanBoard" component={KanbanBoard} />
+          <Route exact path="/GameOfLife" component={GameOfLife} />
+        </Router>
+      </div>
+    )
+  }
 }
 
 export default App;

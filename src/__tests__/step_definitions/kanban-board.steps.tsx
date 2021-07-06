@@ -1,13 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import { mount, ReactWrapper } from 'enzyme';
-import KanbanBoard from '../../presentation/components/kanban-board';
+import KanbanBoard from '../../presentation/containers/kanban-board';
 
 const feature = loadFeature('src/__tests__/features/kanban-board.feature');
 
 defineFeature(feature, test => {
     const cardTitle = "Card title";
-    //let kanbanBoard: KanbanBoard;
     let kanbanBoard: ReactWrapper;
 
     beforeEach(() => {

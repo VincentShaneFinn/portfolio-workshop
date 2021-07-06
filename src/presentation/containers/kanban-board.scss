@@ -4,8 +4,10 @@ $gray-6: #666;
 .kanban-card {
     background-color: $gray-5;
     padding: 15px;
+    margin: 10px;
     border-radius: 5px;
     border: 1px solid black;
+    word-wrap: break-word;
 }
 
 .add-kanban-card {

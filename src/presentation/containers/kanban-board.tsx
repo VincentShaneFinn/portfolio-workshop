@@ -41,7 +41,7 @@ class KanbanBoard extends Component<{}, KanbanBoardState> {
     //#endregion
 
     //#region Rendering helpers
-    
+
     renderList(list: Array<string>, hasCloseButton: boolean) {
         let _this = this;
         function conditionallyDrawCloseBtn(index: number) {
@@ -88,15 +88,19 @@ class KanbanBoard extends Component<{}, KanbanBoardState> {
                 {this.renderAddCard()}
                 <div className="row kanban-lists">
                     <div className="col-6">
-                        <h3>Open</h3>
-                        <div className="open-list">
-                            {this.renderList(this.state.openList, true)}
+                        <div className="border">
+                            <h3>Open</h3>
+                            <div className="open-list">
+                                {this.renderList(this.state.openList, true)}
+                            </div>
                         </div>
                     </div>
                     <div className="col-6">
-                        <h3>Closed</h3>
-                        <div className="closed-list">
-                            {this.renderList(this.state.closedList, false)}
+                        <div className="border">
+                            <h3>Closed</h3>
+                            <div className="closed-list">
+                                {this.renderList(this.state.closedList, false)}
+                            </div>
                         </div>
                     </div>
                 </div>

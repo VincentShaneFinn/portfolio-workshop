@@ -6,8 +6,8 @@
     },
     "cucumberautocomplete.strictGherkinCompletion": true,
     "cucumberautocomplete.steps": [
-        "src/__tests__/step_definitions/*.ts",
-        "src/__tests__/step_definitions/*.tsx"
+        "client/src/__tests__/step_definitions/*.ts",
+        "client/src/__tests__/step_definitions/*.tsx"
     ],
-    "cucumberautocomplete.syncfeatures": "src/__tests__/features/*feature",
+    "cucumberautocomplete.syncfeatures": "client/src/__tests__/features/*feature",
 }

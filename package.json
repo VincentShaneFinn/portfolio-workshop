@@ -16,6 +16,7 @@
   },
   "scripts": {
     "start": "node --loader ts-node/esm ./server/index.ts",
-    "build": "cd client/ && npm install && npm run build"
+    "build": "cd client/ && npm install && npm run build",
+    "test": "cd ./client/ && npm test"
   }
 }

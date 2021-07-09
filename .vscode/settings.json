@@ -9,5 +9,5 @@
         "src/__tests__/step_definitions/*.ts",
         "src/__tests__/step_definitions/*.tsx"
     ],
-    "cucumberautocomplete.syncfeatures": "src/__tests__/features/*feature"
+    "cucumberautocomplete.syncfeatures": "src/__tests__/features/*feature",
 }

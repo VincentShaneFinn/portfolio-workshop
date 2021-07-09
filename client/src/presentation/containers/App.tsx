@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import './app.scss';
+import './App.scss';
 import { Chat } from './chat/chat';
 import GameOfLife from './game-of-life';
 import KanbanBoard from './kanban-board';

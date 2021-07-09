@@ -3,6 +3,20 @@ var server = require('http').createServer(app);
 const PORT = 8080;
 const io = require('socket.io')(server, { cors: { origin: '*', } });
 
+server.listen(PORT, () => {
+    console.log(`listening on *:${PORT}`);
+});
+
+// start strategery here
+// io.on('connection', (socket) => {
+//     console.log("connection 2");
+//     socket.on('disconnect', () => {
+//         console.log("also disconnected");
+//     })
+// });
+
+//#region Chat socket stuff
+
 var STATIC_CHANNELS = [{
     name: 'Global chat',
     participants: 0,
@@ -15,13 +29,13 @@ var STATIC_CHANNELS = [{
     sockets: []
 }];
 
-server.listen(PORT, () => {
-    console.log(`listening on *:${PORT}`);
+app.get('/api/getChannels', (req, res) => {
+    res.json({
+        channels: STATIC_CHANNELS
+    })
 });
 
-io.on('connection', (socket) => { // socket object may be used to send specific messages to the new connected client
-    console.log('new client connected');
-    socket.emit('connection', null);
+io.on('connection', (socket) => {
     socket.on('channel-join', id => {
         console.log('channel join', id);
         STATIC_CHANNELS.forEach(c => {
@@ -60,8 +74,4 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
     });
 });
 
-app.get('/api/getChannels', (req, res) => {
-    res.json({
-        channels: STATIC_CHANNELS
-    })
-});
+//#endregion

@@ -19,7 +19,7 @@ export class MessagesPanel extends Component<MessagesPannelProps> {
     }
 
     send() {
-        if (this.state.inputValue && this.state.inputValue != '') {
+        if (this.state.inputValue && this.state.inputValue !== '') {
             this.props.onSendMessage(this.props.channel.id, this.state.inputValue);
             this.setState({ inputValue: '' });
         }

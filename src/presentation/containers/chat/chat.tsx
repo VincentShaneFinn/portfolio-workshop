@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { ChannelList, ChannelListProps } from './channellist';
+import { ChannelList } from './channellist';
 import { ChannelProps } from './channel'
 import './chat.scss';
 import socketClient from "socket.io-client";

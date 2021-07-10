@@ -2,9 +2,8 @@ import { Component } from 'react';
 import { ChannelList } from './channellist';
 import { ChannelProps } from './channel'
 import './chat.scss';
-import socketClient from "socket.io-client";
+import { io } from "socket.io-client";
 import { MessagesPanel } from './messagePannel';
-const SERVER = "http://127.0.0.1:8080";
 
 export interface ChatState {
     socket: any,
@@ -40,7 +39,7 @@ export class Chat extends Component<{}, ChatState> {
     }
 
     configureSocket = () => {
-        var socket = socketClient(SERVER);
+        const socket = io();
         socket.on('connection', () => {
             if (this.state.channel) {
                 this.handleChannelSelect(this.state.channel.id);

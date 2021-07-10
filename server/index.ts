@@ -13,10 +13,6 @@ server.listen(PORT, () => {
     console.log(`listening on *:${PORT}`);
 });
 
-app.get('*', (req: any, res: any) => {
-    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
-
 // start strategery here
 // io.on('connection', (socket) => {
 //     console.log("connection 2");
@@ -30,3 +26,7 @@ app.get('*', (req: any, res: any) => {
 new ChatServer().start(app, io);
 
 //#endregion
+
+app.get('*', (req: any, res: any) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});

@@ -9,7 +9,6 @@ import Main from './main';
 class App extends Component {
   render() {
     return (
-      <div>
         <Router>
           <header className="App-header">
               <Link to="/">Portfolio Workshop</Link>
@@ -19,7 +18,6 @@ class App extends Component {
           <Route exact path="/GameOfLife" component={GameOfLife} />
           <Route exact path="/Chat" component={Chat} />
         </Router>
-      </div>
     )
   }
 }

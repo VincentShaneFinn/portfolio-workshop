@@ -25,6 +25,15 @@ class Main extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className="col">
+                            <div className="card bg-dark">
+                                <h5 className="card-header">Chat</h5>
+                                <div className="card-body">
+                                    <p className="card-text">A spike to learn about sockets witha basic chat application</p>
+                                    <Link to="/chat" className="btn btn-primary">Click here</Link>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

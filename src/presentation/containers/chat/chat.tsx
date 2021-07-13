@@ -4,6 +4,7 @@ import { ChannelProps } from './channel'
 import './chat.scss';
 import { io } from "socket.io-client";
 import { MessagesPanel } from './messagePannel';
+import { getServerUrl } from '../../../serverUrlService';
 
 export interface ChatState {
     socket: any,
@@ -32,14 +33,14 @@ export class Chat extends Component<{}, ChatState> {
     }
 
     loadChannels = async () => {
-        fetch('http://localhost:8080/api/getChannels').then(async response => {
+        fetch(getServerUrl() + '/api/getChannels').then(async response => {
             let data = await response.json();
             this.setState({ channels: data.channels });
         })
     }
 
     configureSocket = () => {
-        const socket = io("http://localhost:8080");
+        const socket = io(getServerUrl());
         socket.on('connection', () => {
             if (this.state.channel) {
                 this.handleChannelSelect(this.state.channel.id);

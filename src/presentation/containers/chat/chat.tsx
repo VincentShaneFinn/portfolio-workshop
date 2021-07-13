@@ -33,7 +33,7 @@ export class Chat extends Component<{}, ChatState> {
     }
 
     loadChannels = async () => {
-        fetch(getServerUrl() + '/api/getChannels').then(async response => {
+        fetch(getServerUrl() + 'api/getChannels').then(async response => {
             let data = await response.json();
             this.setState({ channels: data.channels });
         })

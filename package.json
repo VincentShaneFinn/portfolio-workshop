@@ -14,17 +14,20 @@
     "@types/react-router-dom": "^5.1.7",
     "bootstrap": "^5.0.2",
     "cucumber": "^7.0.0-rc.0",
+    "env-cmd": "^10.1.0",
     "jest-cucumber": "^3.0.1",
     "node-sass": "^6.0.1",
     "react": "~16",
     "react-dom": "~16",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "socket.io-client": "^4.1.3",
     "typescript": "^4.3.5",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "env-cmd -f .env.prod react-scripts start",
+    "dev": "env-cmd -f .env.dev react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -5,11 +5,7 @@ export interface LandingPageProps {
     setAppHeaderIsHidden: any
 }
 
-export class LandingPage extends Component<LandingPageProps> {
-    constructor(props: LandingPageProps) {
-        super(props);
-    }
-
+export class LandingPage extends Component<LandingPageProps> {    
     componentDidMount() {
         this.props.setAppHeaderIsHidden(true);
     }

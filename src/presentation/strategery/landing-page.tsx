@@ -1,7 +1,23 @@
 import { Component } from "react";
 import './strategery.scss';
 
-export class LandingPage extends Component {
+export interface LandingPageProps {
+    setAppHeaderIsHidden: any
+}
+
+export class LandingPage extends Component<LandingPageProps> {
+    constructor(props: LandingPageProps) {
+        super(props);
+    }
+
+    componentDidMount() {
+        this.props.setAppHeaderIsHidden(true);
+    }
+
+    componentWillUnmount() {
+        this.props.setAppHeaderIsHidden(false);
+    }
+
     render() {
         return (
             <div id="landing-page">

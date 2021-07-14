@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import { mount, ReactWrapper } from 'enzyme';
-import KanbanBoard from '../../presentation/containers/kanban-board';
+import KanbanBoard from '../../presentation/kanban-board';
 
 const feature = loadFeature('src/__tests__/features/kanban-board.feature');
 

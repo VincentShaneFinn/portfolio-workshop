@@ -4,7 +4,7 @@ import { ChannelProps } from './channel'
 import './chat.scss';
 import { io } from "socket.io-client";
 import { MessagesPanel } from './messagePannel';
-import { getServerUrl } from '../../../serverUrlService';
+import { getServerUrl } from '../../serverUrlService';
 
 export interface ChatState {
     socket: any,

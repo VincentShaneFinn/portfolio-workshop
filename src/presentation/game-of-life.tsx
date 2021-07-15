@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { World } from "../../domain/game_of_life/world";
+import { World } from "../domain/game_of_life/world";
 import "./game-of-life.scss";
 
 interface GameOfLifeState {

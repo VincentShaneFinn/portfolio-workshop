@@ -1,11 +1,11 @@
-.App-header {
-  min-height: 10vh;
+.app-header {
+  min-height: 5vh;
   display: flex;
   flex-direction: column;
   padding: 15px;
   margin-bottom: 15px;
   justify-content: center;
-  font-size: calc(20px + 2vmin);
+  font-size: calc(16px + 2vmin);
   color: white;
   background-color: #222;
   border-bottom: 1px solid black;
@@ -13,4 +13,15 @@
     color: white;
     text-decoration: none;;
   }
+}
+
+// Main styles
+
+#main-container .row .card {
+  height: 100%;
+  color: #222;
+}
+
+#main-container .row > div {
+  margin-bottom: 15px;
 }

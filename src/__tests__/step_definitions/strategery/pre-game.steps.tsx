@@ -7,8 +7,8 @@ const feature = loadFeature('src/__tests__/features/strategery/pre-game.feature'
 defineFeature(feature, test => {
   let landingPage: ReactWrapper;
 
-  const given_the_strategery_landing_page = (given: any) => {
-    given('the Strategery Landing Page', () => {
+  const given_the_strategery_landing_page_is_loaded = (given: any) => {
+    given('the Strategery Landing Page is loaded', () => {
       landingPage = mount(<LandingPage setAppHeaderIsHidden={setAppHeaderIsHidden} />);
     });
   }
@@ -17,7 +17,7 @@ defineFeature(feature, test => {
     given,
     then
   }) => {
-    given_the_strategery_landing_page(given);
+    given_the_strategery_landing_page_is_loaded(given);
 
     then('the game title is visible', () => {
       expect(landingPage.find("#page-title").text()).toBe("Strategery");
@@ -29,7 +29,7 @@ defineFeature(feature, test => {
     when,
     then
   }) => {
-    given_the_strategery_landing_page(given);
+    given_the_strategery_landing_page_is_loaded(given);
 
     when('mounted', () => {
       landingPage.mount();

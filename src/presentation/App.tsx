@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { SocketInteractor } from '../domain/interactors/SocketInteractor';
 import './App.scss';
 import { Chat } from './chat/chat';
 import GameOfLife from './game-of-life';
 import KanbanBoard from './kanban-board';
 import Main from './main';
-import { LandingPage } from './strategery/landing-page';
+import { Strategery } from './strategery/strategery';
 
 class App extends Component {
   constructor(props: never) {
@@ -36,7 +37,7 @@ class App extends Component {
         <Route exact path="/KanbanBoard" component={KanbanBoard} />
         <Route exact path="/GameOfLife" component={GameOfLife} />
         <Route exact path="/Chat" component={Chat} />
-        <Route exact path="/Strategery" render={(_) => (<LandingPage setAppHeaderIsHidden={this.setAppHeaderIsHidden} />)} />
+        <Route exact path="/Strategery" render={(_) => (<Strategery setAppHeaderIsHidden={this.setAppHeaderIsHidden} socketInteractor={ SocketInteractor.new() } />)} />
       </Router>
     )
   }

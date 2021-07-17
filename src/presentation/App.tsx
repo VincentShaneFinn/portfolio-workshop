@@ -16,7 +16,7 @@ class App extends Component {
 
   state = {
     appHeaderIsHidden: false,
-    socketInteractor: SocketInteractor.new(),
+    socketInteractor: new SocketInteractor(),
   }
 
   setAppHeaderIsHidden(value: boolean) {

@@ -17,7 +17,7 @@ Feature: Join Game
         When unmounted
         Then socket is disconnected
 
-    Scenario: Players can joining the lobby
+    Scenario: Players can join the lobby
         Then the player tries to connect to the server
         When the player is connected to the server
         Then the player tries to join the game

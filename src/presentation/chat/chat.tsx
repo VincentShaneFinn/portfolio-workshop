@@ -13,7 +13,7 @@ export interface ChatState {
 }
 
 export class Chat extends Component<{}, ChatState> {
-    constructor(props: any){
+    constructor(props: any) {
         super(props);
         this.handleSendMessage = this.handleSendMessage.bind(this);
         this.handleChannelSelect = this.handleChannelSelect.bind(this);

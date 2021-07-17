@@ -13,6 +13,10 @@ Feature: Join Game
         When unmounted
         Then setAppHeaderIsHidden is called with value false
 
+    Scenario: disconnects on unmount 
+        When unmounted
+        Then socket is disconnected
+
     Scenario: Players can joining the lobby
         Then the player tries to connect to the server
         When the player is connected to the server

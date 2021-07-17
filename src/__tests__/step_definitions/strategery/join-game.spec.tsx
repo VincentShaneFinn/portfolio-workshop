@@ -62,6 +62,19 @@ defineFeature(feature, test => {
     });
   });
 
+  test('disconnects on unmount', ({
+    when,
+    then
+  }) => {
+    when('unmounted', () => {
+      strategery.unmount();
+    });
+  
+    then('socket is disconnected', () => {
+      socketInteractor.verify(mock => mock.disconnect(), Times.once());
+    });
+  });
+
   test('Players can joining the lobby', ({
     when,
     then

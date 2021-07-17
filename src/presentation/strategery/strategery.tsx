@@ -10,10 +10,6 @@ export interface StrategeryProps {
 }
 
 export class Strategery extends Component<StrategeryProps> {
-    constructor(props: StrategeryProps) {
-        super(props);
-    }
-
     state = {
         currentPage: <LoadingScreen />,
         playerName: "",

@@ -24,8 +24,4 @@ export class SocketInteractor implements ISocketInteractor {
     on(eventName: string, onSendMessage: any) {
         this.socket.on(eventName, onSendMessage);
     }
-
-    static new(): ISocketInteractor {
-        return new SocketInteractor();
-    }
 }

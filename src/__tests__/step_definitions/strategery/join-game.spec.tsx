@@ -75,7 +75,7 @@ defineFeature(feature, test => {
     });
   });
 
-  test('Players can joining the lobby', ({
+  test('Players can join the lobby', ({
     when,
     then
   }) => {

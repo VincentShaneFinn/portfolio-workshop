@@ -1,5 +1,7 @@
 export interface ISocketInteractor {
   connect(onConnectionSucceeded: any): void;
+
+  disconnect(): void;
   
   emit(eventName: string): any;
 

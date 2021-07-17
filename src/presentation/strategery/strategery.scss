@@ -1,0 +1,19 @@
+#loading-screen {
+    text-align: center;
+}
+
+#strategery-main-container{
+    background-color: #222;
+    padding: 15px;
+    border: 1px solid black;
+    
+    #player-list {
+        .player-name {
+            display: block;
+        }
+
+        .player-name::before {
+            content: "- "
+        }
+    }
+}

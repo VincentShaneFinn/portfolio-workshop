@@ -15,7 +15,8 @@ class App extends Component {
   }
 
   state = {
-    appHeaderIsHidden: false
+    appHeaderIsHidden: false,
+    socketInteractor: SocketInteractor.new(),
   }
 
   setAppHeaderIsHidden(value: boolean) {
@@ -37,7 +38,7 @@ class App extends Component {
         <Route exact path="/KanbanBoard" component={KanbanBoard} />
         <Route exact path="/GameOfLife" component={GameOfLife} />
         <Route exact path="/Chat" component={Chat} />
-        <Route exact path="/Strategery" render={(_) => (<Strategery setAppHeaderIsHidden={this.setAppHeaderIsHidden} socketInteractor={ SocketInteractor.new() } />)} />
+        <Route exact path="/Strategery" render={(_) => (<Strategery setAppHeaderIsHidden={this.setAppHeaderIsHidden} socketInteractor={ this.state.socketInteractor } />)} />
       </Router>
     )
   }

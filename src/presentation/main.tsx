@@ -36,10 +36,10 @@ class Main extends Component {
                         </div>
                         <div className="col-sm-6">
                             <div className="card">
-                                <h5 className="card-header">Strategery</h5>
+                                <h5 className="card-header">TicTacToe</h5>
                                 <div className="card-body">
-                                    <p className="card-text">A "risk" like turnbased strategy game based on the iOS game of the same name</p>
-                                    <Link to="/strategery" className="btn btn-dark">Click here</Link>
+                                    <p className="card-text">basic game of tic tac toe using sockets</p>
+                                    <Link to="/TicTacToe" className="btn btn-dark">Click here</Link>
                                 </div>
                             </div>
                         </div>

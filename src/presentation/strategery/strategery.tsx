@@ -56,7 +56,7 @@ export class Strategery extends Component<StrategeryProps> {
             <div id="strategery">
                 <div id="page-title" className="app-header">
                     <div className="row">
-                        <div className="col">Strategery</div>
+                        <div className="col">Tic Tac Toe</div>
                         <div className="col text-end"><span id="player-name">{this.state.playerName}</span> { this.renderHostName() }</div>
                     </div>
                 </div>

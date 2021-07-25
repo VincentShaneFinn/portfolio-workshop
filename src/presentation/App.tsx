@@ -38,7 +38,7 @@ class App extends Component {
         <Route exact path="/KanbanBoard" component={KanbanBoard} />
         <Route exact path="/GameOfLife" component={GameOfLife} />
         <Route exact path="/Chat" component={Chat} />
-        <Route exact path="/Strategery" render={(_) => (<Strategery setAppHeaderIsHidden={this.setAppHeaderIsHidden} socketInteractor={ this.state.socketInteractor } />)} />
+        <Route exact path="/TicTacToe" render={(_) => (<Strategery setAppHeaderIsHidden={this.setAppHeaderIsHidden} socketInteractor={ this.state.socketInteractor } />)} />
       </Router>
     )
   }

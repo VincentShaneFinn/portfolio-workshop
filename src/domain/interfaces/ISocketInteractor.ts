@@ -3,7 +3,7 @@ export interface ISocketInteractor {
 
   disconnect(): void;
   
-  emit(eventName: string): any;
+  emit(eventName: string, data?: any): any;
 
   on(eventName: string, onSendMessage: any): any;
 }

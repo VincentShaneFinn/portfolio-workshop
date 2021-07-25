@@ -17,8 +17,8 @@ export class SocketInteractor implements ISocketInteractor {
         this.socket.disconnect();
     }
     
-    emit(eventName: string) {
-        this.socket.emit(eventName);
+    emit(eventName: string, data?: any) {
+        this.socket.emit(eventName, data);
     }
 
     on(eventName: string, onSendMessage: any) {

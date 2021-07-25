@@ -1,12 +1,20 @@
 import { Component } from "react";
 import { ISocketInteractor } from "../../domain/interfaces/ISocketInteractor";
+import { TicTacToe } from "./TicTacToe";
 
 export interface LobbyProps {
     socketInteractor: ISocketInteractor,
-    playerName: string
+    playerName: string,
+    setCurrentPage: (page: JSX.Element) => void
 }
 
 export class Lobby extends Component<LobbyProps> {
+    constructor(props: LobbyProps) {
+        super(props);
+
+        this.startGame = this.startGame.bind(this);
+    }
+
     state = {
         players: [] as Array<string>,
         host: "",
@@ -20,7 +28,9 @@ export class Lobby extends Component<LobbyProps> {
         this.props.socketInteractor.on("host-changed", (playerName: string) => {
             _this.setState({ host: playerName });
         });
-
+        this.props.socketInteractor.on("load-game", () => {
+            _this.props.setCurrentPage(<TicTacToe socketInteractor={this.props.socketInteractor} playerName={this.props.playerName}/>)
+        })
         this.props.socketInteractor.emit("joined-lobby");
     }
 
@@ -32,8 +42,12 @@ export class Lobby extends Component<LobbyProps> {
         return playerSpans;
     }
 
+    startGame() {
+        this.props.socketInteractor.emit("start-game");
+    }
+
     renderStartGameBtn() {
-        if (this.props.playerName === this.state.host) return <button id="start-game-btn" className="btn btn-primary">Start Game</button>
+        if (this.props.playerName === this.state.host) return <button id="start-game-btn" className="btn btn-primary" onClick={this.startGame}>Start Game</button>
         return null;
     }
 

@@ -10,6 +10,12 @@ export interface StrategeryProps {
 }
 
 export class Strategery extends Component<StrategeryProps> {
+    constructor(props: StrategeryProps) {
+        super(props);
+
+        this.setCurrentPage = this.setCurrentPage.bind(this);
+    }
+
     state = {
         currentPage: <LoadingScreen />,
         playerName: "",
@@ -22,7 +28,7 @@ export class Strategery extends Component<StrategeryProps> {
         this.props.socketInteractor.connect(() => {
             _this.props.socketInteractor.on("join-game", (playerName: string) => {
                 this.setState({ playerName });
-                this.setState({ currentPage: <Lobby socketInteractor={this.props.socketInteractor} playerName={this.state.playerName}/>});
+               _this.setCurrentPage(<Lobby socketInteractor={this.props.socketInteractor} playerName={this.state.playerName} setCurrentPage={_this.setCurrentPage}/>);
             })
             _this.props.socketInteractor.on("host-changed", (playerName: string) => {
                 _this.setState({ host: playerName });
@@ -34,6 +40,10 @@ export class Strategery extends Component<StrategeryProps> {
     componentWillUnmount() {
         this.props.setAppHeaderIsHidden(false);
         this.props.socketInteractor.disconnect();
+    }
+
+    setCurrentPage(page: JSX.Element) {
+        this.setState({ currentPage: page });
     }
 
     renderHostName() {
